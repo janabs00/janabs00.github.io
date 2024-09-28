@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprehensive Tax Calculator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .form-section {
+            display: none;
+        }
+        .form-section.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans">
+    <div class="container mx-auto p-4 max-w-3xl">
+        <h1 class="text-3xl font-bold mb-6 text-center">Comprehensive Tax Calculator</h1>
+        
+        <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+            <form id="tax-form">
+                <!-- Personal Information -->
+                <div class="form-section active" id="personal-info">
+                    <h2 class="text-xl font-semibold mb-4">Personal Information</h2>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="name">Name</label>
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name" name="name" type="text" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="age">Age</label>
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="age" name="age" type="number" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="employment-status">Employment Status</label>
+                        <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="employment-status" name="employment-status" required>
+                            <option value="">Select status</option>
+                            <option value="employed">Employed</option>
+                            <option value="self-employed">Self-employed</option>
+                            <option value="unemployed">Unemployed</option>
+                            <option value="retired">Retired</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Business Information -->
+                <div class="form-section" id="business-info">
+                    <h2 class="text-xl font-semibold mb-4">Business Information</h2>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="business-type">Business Type</label>
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="business-type" name="business-type" type="text">
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="expenses">Expenses</label>
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="expenses" name="expenses" type="number">
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="assets">Assets</label>
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="assets" name="assets" type="number">
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="revenues">Revenues</label>
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="revenues" name="revenues" type="number">
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="liabilities">Liabilities</label>
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="liabilities" name="liabilities" type="number">
+                    </div>
+                </div>
+
+                <!-- Taxable Deductions -->
+                <div class="form-section" id="deductions">
+                    <h2 class="text-xl font-semibold mb-4">Taxable Deductions</h2>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="home-loan-interest">Home Loan Interest</label>
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="home-loan-interest" name="home-loan-interest" type="number">
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="education-loan">Education Loan</label>
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="education-loan" name="education-loan" type="number">
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="donations">Donations</label>
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="donations" name="donations" type="number">
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="insurance-premiums">Insurance Premiums</label>
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="insurance-premiums" name="insurance-premiums" type="number">
+                    </div>
+                </div>
+
+                <div class="flex justify-between mt-6">
+                    <button type="button" id="prev-btn" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" style="display: none;">
+                        Previous
+                    </button>
+                    <button type="button" id="next-btn" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                        Next
+                    </button>
+                    <button type="submit" id="calculate-btn" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" style="display: none;">
+                        Calculate Tax
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Tax Calculation Results -->
+        <div id="results" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" style="display: none;">
+            <h2 class="text-2xl font-bold mb-4">Tax Calculation Results</h2>
+            <div id="result-content"></div>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('tax-form');
+        const sections = document.querySelectorAll('.form-section');
+        const nextBtn = document.getElementById('next-btn');
+        const prevBtn = document.getElementById('prev-btn');
+        const calculateBtn = document.getElementById('calculate-btn');
+        const resultsSection = document.getElementById('results');
+        const resultContent = document.getElementById('result-content');
+
+        let currentSection = 0;
+
+        function showSection(sectionIndex) {
+            sections.forEach((section, index) => {
+                section.classList.toggle('active', index === sectionIndex);
+            });
+
+            prevBtn.style.display = sectionIndex > 0 ? 'inline-block' : 'none';
+            nextBtn.style.display = sectionIndex < sections.length - 1 ? 'inline-block' : 'none';
+            calculateBtn.style.display = sectionIndex === sections.length - 1 ? 'inline-block' : 'none';
+        }
+
+        nextBtn.addEventListener('click', () => {
+            if (currentSection < sections.length - 1) {
+                currentSection++;
+                showSection(currentSection);
+            }
+        });
+
+        prevBtn.addEventListener('click', () => {
+            if (currentSection > 0) {
+                currentSection--;
+                showSection(currentSection);
+            }
+        });
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+            
+            const taxResults = calculateTax(data);
+            displayResults(taxResults);
+        });
+
+        function calculateTax(data) {
+            // This is a simplified tax calculation for demonstration purposes
+            // In a real-world scenario, tax calculations would be much more complex and vary by jurisdiction
+
+            let taxableIncome = parseFloat(data.revenues) - parseFloat(data.expenses);
+            let deductions = parseFloat(data['home-loan-interest']) + 
+                             parseFloat(data['education-loan']) + 
+                             parseFloat(data.donations) + 
+                             parseFloat(data['insurance-premiums']);
+
+            taxableIncome -= deductions;
+
+            let taxRate = 0.2; // Assuming a flat 20% tax rate for simplicity
+            let taxLiability = taxableIncome * taxRate;
+
+            return {
+                taxableIncome: taxableIncome.toFixed(2),
+                deductions: deductions.toFixed(2),
+                taxRate: (taxRate * 100).toFixed(0) + '%',
+                taxLiability: taxLiability.toFixed(2)
+            };
+        }
+
+        function displayResults(results) {
+            resultContent.innerHTML = `
+                <p><strong>Taxable Income:</strong> $${results.taxableIncome}</p>
+                <p><strong>Total Deductions:</strong> $${results.deductions}</p>
+                <p><strong>Tax Rate:</strong> ${results.taxRate}</p>
+                <p><strong>Estimated Tax Liability:</strong> $${results.taxLiability}</p>
+            `;
+            resultsSection.style.display = 'block';
+            resultsSection.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        showSection(currentSection);
+    </script>
+</body>
+</html>
