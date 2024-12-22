@@ -1,0 +1,29 @@
+[
+    {
+        "section": "PCM",
+        "class": "11th",
+        "subject": "Physics",
+        "chapter": 1,
+        "difficulty": 1,
+        "question": "What is Newton's first law?",
+        "answer": "Newton's first law states that an object remains at rest or in uniform motion unless acted upon by an external force."
+    },
+    {
+        "section": "PCM",
+        "class": "11th",
+        "subject": "Physics",
+        "chapter": 1,
+        "difficulty": 2,
+        "question": "Explain the concept of inertia.",
+        "answer": "Inertia is the tendency of an object to resist changes in its state of motion."
+    },
+    {
+        "section": "PCM",
+        "class": "11th",
+        "subject": "Physics",
+        "chapter": 1,
+        "difficulty": 3,
+        "question": "Derive the equations of motion using calculus.",
+        "answer": "The equations of motion are derived by integrating acceleration, which is the derivative of velocity."
+    }
+]
