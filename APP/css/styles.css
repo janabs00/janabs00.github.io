@@ -6,7 +6,7 @@ body {
     background-color: #f4f4f9;
 }
 header {
-    background-color: #6200ea;
+    background-color: red;
     color: #fff;
     padding: 1rem;
 }
@@ -16,14 +16,14 @@ main {
 button {
     padding: 1rem 2rem;
     margin: 0.5rem;
-    background-color: #6200ea;
+    background-color: blue;
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 button:hover {
-    background-color: #3700b3;
+    background-color: #290283;
 }
 h2 {
     color: #333;
